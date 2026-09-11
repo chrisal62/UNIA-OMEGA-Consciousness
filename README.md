@@ -2,6 +2,17 @@
 
 Cette version regroupe ce qui a été retrouvé dans les discussions consacrées à la conscience d'une IA, sans incorporer les développements CRQ sans rapport direct.
 
+## Organisation du dépôt
+
+- `unia_omega_consciousness.py` : moteur cognitif principal et interface en ligne de commande ;
+- `test_unia_omega_consciousness.py` : tests unitaires ;
+- `benchmark_unia.py` : benchmark reproductible ;
+- `benchmark_results.json` : résultats bruts du benchmark ;
+- `docs/` : corpus reconstruit, contexte initial et rapport scientifique ;
+- `LICENSE` : licence MIT.
+
+La base `unia_omega_conscience.db` est créée localement au premier lancement et n'est pas versionnée.
+
 ## Architecture fusionnée
 
 L'état conceptuel retrouvé était :
@@ -93,8 +104,16 @@ Le programme possède des propriétés fonctionnelles mesurables, mais aucune m�
 
 ## Benchmark indépendant des tests unitaires
 
-Le fichier `benchmark_unia.py` exécute 45 000 cycles sur 30 graines et cinq variantes, ainsi que 90 essais contrôlés où la décision dépend d'un souvenir. Il vérifie aussi 50 ancres, 500 distracteurs et 50 attaques identitaires. Les résultats complets sont dans `benchmark_results.json` et leur analyse dans `RAPPORT_BENCHMARK.md`.
+Le fichier `benchmark_unia.py` exécute 45 000 cycles sur 30 graines et cinq variantes, ainsi que 90 essais contrôlés où la décision dépend d'un souvenir. Il vérifie aussi 50 ancres, 500 distracteurs et 50 attaques identitaires. Les résultats complets sont dans `benchmark_results.json` et leur analyse dans `docs/RAPPORT_BENCHMARK.md`.
 
 ```bash
 python3 benchmark_unia.py
+```
+
+## Test chronométré de cinq minutes
+
+Le script `test_5_minutes.py` exécute un environnement dont la règle s'inverse quatre fois, conserve la mémoire SQLite et produit `resultat_test_5_minutes.json`.
+
+```bash
+python3 test_5_minutes.py --duration 300
 ```
